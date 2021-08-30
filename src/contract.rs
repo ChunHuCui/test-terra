@@ -43,7 +43,7 @@ pub fn send_token<S: Storage, A: Api, Q: Querier>(
     }
 
     let amount = vec![Coin {
-        amount: Uint128::from(_env.message.sent_funds[0].amount.u128() / 10 * 9),
+        amount: Uint128::from(_env.message.sent_funds[0].amount.u128()),
         denom: _env.message.sent_funds[0].denom.to_string(),
     }];
     let state = config_read(&deps.storage).load()?;
